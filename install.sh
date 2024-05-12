@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -e
 
-# Install the dependencies
+## Install the dependencies
 # sudo apt-get update
 # sudo apt install -y build-essential
 # sudo apt install -y cmake libexpat-dev expat default-jre
@@ -12,8 +12,8 @@ PROJECT_ROOT=$PWD
 # git submodule add https://github.com/COVESA/vsomeip.git
 # git submodule add https://github.com/COVESA/capicxx-someip-runtime.git
 # git submodule add https://github.com/COVESA/capicxx-core-runtime.git
-# git submodule init
-# git submodule update
+git submodule init
+git submodule update
 
 ## Install Boost library
 echo -e "\033[36m• Installing Boost library\033[0m"
