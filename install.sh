@@ -42,7 +42,8 @@ echo -e "\033[36m• Installing vsomeip library\033[0m"
 cd $PROJECT_ROOT/vsomeip
 mkdir -p build
 cd build/
-cmake .. -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/boost-1.85.0/stage/lib/cmake/Boost-1.85.0 && make
+cmake .. -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/boost-1.85.0/stage/lib/cmake/Boost-1.85.0 \
+         -DBoost_INCLUDE_DIR=$PROJECT_ROOT/boost-1.85.0 && make
 retVal=$?
 if [ $retVal -ne 0 ]; then
     echo "Error: Install vsomeip"

@@ -1,1 +1,5 @@
-boost-1.85.0
+boost*
+commonapi_core_generator
+commonapi_someip_generator
+*.zip
+*.tar.gz
