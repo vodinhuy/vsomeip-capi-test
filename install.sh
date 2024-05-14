@@ -20,7 +20,7 @@ echo -e "\033[36m• Installing Boost library\033[0m"
 wget https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.gz
 tar -xzvf boost-1.85.0-b2-nodocs.tar.gz
 cd boost-1.85.0/
-./bootstrap.sh && ./b2
+./bootstrap.sh && ./b2 install
 retVal=$?
 if [ $retVal -ne 0 ]; then
     echo "Error: Install Boost"
@@ -31,7 +31,7 @@ echo -e "\033[36m• Installing capicxx-core-runtime library\033[0m"
 cd $PROJECT_ROOT/capicxx-core-runtime
 mkdir -p build
 cd build/
-cmake .. && make
+cmake .. && make install
 retVal=$?
 if [ $retVal -ne 0 ]; then
     echo "Error: Install capicxx-core-runtime"
@@ -42,8 +42,7 @@ echo -e "\033[36m• Installing vsomeip library\033[0m"
 cd $PROJECT_ROOT/vsomeip
 mkdir -p build
 cd build/
-cmake .. -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/boost-1.85.0/stage/lib/cmake/Boost-1.85.0 \
-         -DBoost_INCLUDE_DIR=$PROJECT_ROOT/boost-1.85.0 && make
+cmake .. && make install
 retVal=$?
 if [ $retVal -ne 0 ]; then
     echo "Error: Install vsomeip"
@@ -54,7 +53,7 @@ echo -e "\033[36m• Installing capicxx-someip-runtime library\033[0m"
 cd $PROJECT_ROOT/capicxx-someip-runtime
 mkdir -p build
 cd build/
-cmake .. -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/vsomeip/build && make
+cmake .. && make install
 retVal=$?
 if [ $retVal -ne 0 ]; then
     echo "Error: Install capicxx-someip-runtime"
